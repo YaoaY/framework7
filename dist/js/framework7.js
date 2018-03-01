@@ -9692,7 +9692,7 @@
             if (tabs.length === 0) return false;
         
             if(newTab.trigger('beforeShow tab:beforeShow').data('stop_show') === true) {
-                newTab.data('stop_show',false);
+                newTab.removeData('stop_show');
                 return false;
             }
             
