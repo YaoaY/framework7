@@ -21,7 +21,10 @@ app.showTab = function (tab, tabLink, animated, force) {
     var tabs = newTab.parent('.tabs');
     if (tabs.length === 0) return false;
 
-    if(newTab.trigger('beforeShow tab:beforeShow').stop === true) return false;
+    if(newTab.trigger('beforeShow tab:beforeShow').data('stop_show') === true) {
+        newTab.data('stop_show',false);
+        return false;
+    }
     
     // Return swipeouts in hidden tabs
     app.allowSwipeout = true;
